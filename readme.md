@@ -12,16 +12,18 @@ This tutorial explains how to set up a development environment on a Linux PC, wr
 ---
 # Menu
 
-1. [Installation du compilateur sur le PC](01-installation-compilateur.md)
-2. [Utilisation de muOS](02-utilisation-muos.md)
+# Menu
+
+1. [Installing the Compiler on the PC](01-installation-compilateur.md)
+2. [Using muOS](02-utilisation-muos.md)
 3. [Compilation](03-compilation.md)
-4. [Exécution du programme dans muOS](04-execution-muos.md)
-5. [Utilisation des boutons et du pavé directionnel](05-boutons-pad.md)
-6. [Affichage d'une image](06-affichage-image.md)
-7. [Affichage d'un texte](07-affichage-texte.md)
-8. [Lire un fichier WAV](08-lire-wav.md)
-9. [Lire un MP3](09-lire-mp3.md)
-10. [Lire un fichier MOD](10-lire-mod.md)
+4. [Running the Program in muOS](04-execution-muos.md)
+5. [Using Buttons and Direction Pad](05-boutons-pad.md)
+6. [Displaying an Image](06-affichage-image.md)
+7. [Displaying Text](07-affichage-texte.md)
+8. [Playing a WAV File](08-lire-wav.md)
+9. [Playing an MP3 File](09-lire-mp3.md)
+10. [Playing a MOD File](10-lire-mod.md)
 ---
 
 # Hardware Specifications
