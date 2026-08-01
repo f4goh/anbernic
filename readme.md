@@ -76,18 +76,5 @@ Although written for the RG35XX H, this project is an excellent reference for un
 
 ---
 
-# Future Chapters
-
-The next tutorials will cover:
-
-- SDL2 rendering
-- Image loading
-- Audio playback
-- Reading gamepad inputs
-- Double buffering
-- Sprites and animations
-- Building a simple game engine
-- Cross-compilation using CMake
-- Performance optimization on the H700 processor
 
 
