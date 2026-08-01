@@ -1,0 +1,3 @@
+/home/ale/anbernic/src/Carrerouge/build/CMakeFiles/carrerouge.dir
+/home/ale/anbernic/src/Carrerouge/build/CMakeFiles/edit_cache.dir
+/home/ale/anbernic/src/Carrerouge/build/CMakeFiles/rebuild_cache.dir

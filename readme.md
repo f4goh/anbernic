@@ -9,7 +9,19 @@ Although primarily designed for retro gaming, the [RG40XX H](https://fr.aliexpre
 This tutorial explains how to set up a development environment on a Linux PC, write a first SDL2 application, cross-compile it for the RG40XX H, and run it directly on the console.
 
 ![view](images/RG40XXview.png)
+---
+# Menu
 
+1. [Installation du compilateur sur le PC](01-installation-compilateur.md)
+2. [Utilisation de muOS](02-utilisation-muos.md)
+3. [Compilation](03-compilation.md)
+4. [Exécution du programme dans muOS](04-execution-muos.md)
+5. [Utilisation des boutons et du pavé directionnel](05-boutons-pad.md)
+6. [Affichage d'une image](06-affichage-image.md)
+7. [Affichage d'un texte](07-affichage-texte.md)
+8. [Lire un fichier WAV](08-lire-wav.md)
+9. [Lire un MP3](09-lire-mp3.md)
+10. [Lire un fichier MOD](10-lire-mod.md)
 ---
 
 # Hardware Specifications
@@ -52,23 +64,6 @@ Recommended Linux Mint editions:
 
 ---
 
-# Installing the Development Environment
-
-Install the required tools:
-
-```bash
-sudo apt update
-sudo apt install build-essential cmake git libsdl2-dev
-```
-
-Install the ARM64 cross compiler:
-
-```bash
-sudo apt install gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
-```
-
----
-
 # Creating the First SDL2 Project
 
 Create a working directory:
@@ -89,6 +84,123 @@ Carrerouge/
 ├── CMakeLists.txt
 └── build/
 ```
+
+```c
+#include <SDL2/SDL.h>
+#include <stdbool.h>
+
+#define WINDOW_WIDTH 640
+#define WINDOW_HEIGHT 480
+
+int main(int argc, char *argv[])
+{
+    (void)argc;
+    (void)argv;
+
+    if (SDL_Init(SDL_INIT_VIDEO) != 0)
+    {
+        SDL_Log("Erreur SDL_Init : %s", SDL_GetError());
+        return 1;
+    }
+
+    SDL_Window *window = SDL_CreateWindow(
+        "Carre Rouge",
+        SDL_WINDOWPOS_CENTERED,
+        SDL_WINDOWPOS_CENTERED,
+        WINDOW_WIDTH,
+        WINDOW_HEIGHT,
+        SDL_WINDOW_SHOWN);
+
+    if (window == NULL)
+    {
+        SDL_Log("Erreur creation fenetre : %s", SDL_GetError());
+        SDL_Quit();
+        return 1;
+    }
+
+    SDL_Renderer *renderer = SDL_CreateRenderer(
+        window,
+        -1,
+        SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+
+    if (renderer == NULL)
+    {
+        SDL_Log("Erreur creation renderer : %s", SDL_GetError());
+        SDL_DestroyWindow(window);
+        SDL_Quit();
+        return 1;
+    }
+
+    bool running = true;
+    SDL_Event event;
+
+    SDL_Rect square = {
+        WINDOW_WIDTH / 2 - 50,
+        WINDOW_HEIGHT / 2 - 50,
+        100,
+        100};
+
+    while (running)
+    {
+        while (SDL_PollEvent(&event))
+        {
+            switch (event.type)
+            {
+                case SDL_QUIT:
+                    running = false;
+                    break;
+
+                case SDL_KEYDOWN:
+                    if (event.key.keysym.sym == SDLK_ESCAPE)
+                    {
+                        running = false;
+                    }
+                    break;
+            }
+        }
+
+        /* Fond noir */
+        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+        SDL_RenderClear(renderer);
+
+        /* Carré rouge */
+        SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+        SDL_RenderFillRect(renderer, &square);
+
+        SDL_RenderPresent(renderer);
+    }
+
+    SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(window);
+    SDL_Quit();
+
+    return 0;
+}
+```
+
+```console
+cmake_minimum_required(VERSION 3.10)
+
+project(carrerouge C)
+
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_C_STANDARD_REQUIRED ON)
+
+find_package(SDL2 REQUIRED)
+
+add_executable(carrerouge
+    main.c
+)
+
+target_include_directories(carrerouge PRIVATE
+    ${SDL2_INCLUDE_DIRS}
+)
+
+target_link_libraries(carrerouge
+    ${SDL2_LIBRARIES}
+)
+```
+
 
 Compile on the PC:
 
@@ -115,10 +227,7 @@ A window containing a red square should appear.
 Compile directly for the RG40XX H:
 
 ```bash
-aarch64-linux-gnu-g++ \
-main.cpp \
--o carrerouge \
--lSDL2
+aarch64-linux-gnu-g++ main.cpp -o carrerouge -lSDL2
 ```
 
 ---
