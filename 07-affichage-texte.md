@@ -22,6 +22,9 @@ The application:
 Unlike the previous example, this program introduces **SDL2_ttf**, an SDL extension library that allows rendering TrueType fonts. SDL2_ttf is built on top of the FreeType and HarfBuzz libraries.
 ---
 
+![font](images/font.png)
+
+---
 # Initializing SDL2_ttf
 
 Before using any font function, SDL2_ttf must be initialized.
@@ -316,6 +319,9 @@ Compile for the RG40XX H:
 ```bash
 make arm64
 ```
+---
+
+![font_appli](images/font_appli.png)
 
 ---
 

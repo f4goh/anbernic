@@ -178,3 +178,9 @@ carrerouge-arm64
 ```
 
 The ARM64 version can then be copied to the console using SCP and executed from muOS using the `mux_launch.sh` launcher script.
+
+---
+
+![carre](images/carre.png)
+
+---

@@ -20,6 +20,8 @@ The application:
 - waits until the **MENU** button is pressed;
 - releases all allocated resources before exiting.
 
+![image](images/image.png)
+
 ---
 
 # Initializing SDL

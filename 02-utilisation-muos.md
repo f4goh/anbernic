@@ -2,12 +2,15 @@
 
 ## Downloading muOS for the RG40XX H
 
-Before starting development, you need to install **muOS** on your handheld device.
+Before starting development, you need to install [**muOS**](https://muos.dev/) on your handheld device.
+
+![mustard_os](images/mustard_os.png)
 
 Download the appropriate version of **muOS for the RG40XX H** and prepare a microSD card dedicated to the operating system.
 
-> Screenshot: muOS download page  
-> *(Insert screenshot here)*
+> Screenshot: muOS download page
+
+![os_types](images/os_types.png)
 
 ## Creating the microSD card with Balena Etcher
 
@@ -23,7 +26,7 @@ Steps:
 6. Wait until the process is completed.
 
 > Screenshot: Balena Etcher configuration  
-> *(Insert screenshot here)*
+![etcher](images/etcher.png)
 
 After the flashing process is finished, safely eject the microSD card and insert it into the RG40XX H.
 
@@ -51,6 +54,12 @@ The easiest way is to use your smartphone as a Wi-Fi hotspot:
 
 The network connection is required to remotely access the console from your development PC.
 
+![connectivite](images/connectivite.png)
+
+![wifi1](images/wifi1.png)
+
+![wifi2](images/wifi2.png)
+
 ## Enable SSH and SCP access
 
 To transfer files and remotely control the RG40XX H from your PC, enable:
@@ -64,11 +73,11 @@ In the muOS settings menu:
 2. Enable **SSH**.
 3. Enable **SCP**.
 
-> Screenshot: Enable SSH option  
-> *(Insert screenshot here)*
+> Enable SSH option  Enable SCP option 
 
-> Screenshot: Enable SCP option  
-> *(Insert screenshot here)*
+![services1](images/services1.png)
+
+![services2](images/services2.png)
 
 Once SSH and SCP are enabled, the RG40XX H can be accessed remotely from the development PC.
 
@@ -85,3 +94,55 @@ scp my_program root@<RG40XX_IP_ADDRESS>:/path/to/destination/
 ```
 
 The RG40XX H is now ready to receive compiled applications from your development environment.
+
+## Taking a screenshot and copying it to your PC
+
+muOS includes a built-in screenshot feature that can be useful for documenting your application or capturing the current screen.
+
+To take a screenshot:
+
+1. Press **L2 + L1 + X** simultaneously.
+2. The screenshot will be saved automatically on the SD card.
+
+Screenshots are stored in:
+
+```text
+/mnt/mmc/MUOS/screenshot/
+```
+
+Example:
+
+```bash
+[/mnt/mmc/MUOS/screenshot]# ls
+muOS_20260727_2042_0.png
+```
+
+To copy a screenshot from the RG40XX H to your development PC, use **SCP**:
+
+```bash
+scp root@<RG40XX_IP_ADDRESS>:/mnt/mmc/MUOS/screenshot/muOS_20260727_2042_0.png .
+```
+
+Replace `<RG40XX_IP_ADDRESS>` with the IP address of your RG40XX H.
+
+The screenshot will be copied into the current directory on your PC.
+
+## Using Nemo under Linux Mint
+
+![scp_root](images/scp_root.png)
+
+![scp_nemo](images/scp_nemo.png)
+
+## Configuration menu
+
+![configuration](images/configuration.png)
+
+![reseau](images/reseau.png)
+
+![systeme](images/systeme.png)
+
+![stockage](images/stockage.png)
+
+## Shutdown Anbernic
+
+![halt](images/halt.png)

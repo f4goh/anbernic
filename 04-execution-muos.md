@@ -169,6 +169,12 @@ The icon name must match the value used in:
 ```
 ---
 
+![applications1](images/applications1.png)
+
+![applications2](images/applications2.png)
+
+---
+
 ## Stopping a crashed application
 
 If your application crashes or becomes unresponsive, you can terminate it from an SSH session.
