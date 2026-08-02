@@ -286,3 +286,35 @@ Each input generates a `struct input_event` containing:
 Buttons generate **pressed** and **released** events, while the D-Pad and analog sticks generate **axis values**.
 
 This interface is low-level, lightweight, and fast, making it the preferred method for reading controller input on the RG40XX H under muOS.
+
+## controller-arm64 text program (using printf for debug)
+
+```text
+[/mnt/mmc/MUOS/application]# cd controller/
+[/mnt/mmc/MUOS/application/controller]# ls
+controller-arm64
+[/mnt/mmc/MUOS/application/controller]# ./controller-arm64 
+=== RG40XX H INPUT TEST ===
+CTRL+C pour quitter
+
+DPAD LEFT
+DPAD X CENTER
+A PRESSED
+A RELEASED
+KEY code=312 value=1
+KEY code=312 value=0
+MENU PRESSED
+MENU RELEASED
+DPAD RIGHT
+DPAD X CENTER
+KEY code=312 value=1
+KEY code=312 value=0
+MENU PRESSED
+MENU RELEASED
+KEY code=312 value=1
+KEY code=312 value=0
+MENU PRESSED
+MENU RELEASED
+```
+
+

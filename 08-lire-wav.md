@@ -208,6 +208,8 @@ Compile for the RG40XX H:
 make arm64
 ```
 
+## Press M (menu) key to exit
+
 ---
 
 # Summary

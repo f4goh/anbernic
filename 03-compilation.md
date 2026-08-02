@@ -181,6 +181,8 @@ The ARM64 version can then be copied to the console using SCP and executed from 
 
 ---
 
+## Press X key to exit
+
 ![carre](images/carre.png)
 
 ---

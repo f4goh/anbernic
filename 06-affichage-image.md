@@ -227,6 +227,7 @@ Compile for the RG40XX H:
 ```bash
 make arm64
 ```
+## Press M (menu) key to exit
 
 ---
 

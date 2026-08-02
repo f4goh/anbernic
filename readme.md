@@ -10,7 +10,6 @@ This tutorial explains how to set up a development environment on a Linux PC, wr
 
 ![view](images/RG40XXview.png)
 ---
-# Menu
 
 # Menu
 

@@ -152,6 +152,22 @@ scp -r my_application root@192.168.1.203:/run/muos/storage/application/
 
 After the transfer is complete, the application will automatically appear in the **Applications** menu of muOS.
 
+```bash
+[~]# cd /
+[/]# ls
+bin         init        linuxrc     opt         run         usr
+dev         lib         lost+found  proc        sbin        var
+etc         lib32       media       roms        sys
+home        lib64       mnt         root        tmp
+[/]# cd mnt/mmc/MUOS/application/
+[/mnt/mmc/MUOS/application]# ls
+audio       carrerouge  controller  font        image       input
+[/mnt/mmc/MUOS/application]# cd carrerouge/
+[/mnt/mmc/MUOS/application/carrerouge]# ls
+carrerouge-arm64  mux_launch.sh
+[/mnt/mmc/MUOS/application/carrerouge]# 
+```
+
 ---
 
 ## Custom icon

@@ -323,6 +323,7 @@ make arm64
 
 ![font_appli](images/font_appli.png)
 
+## Press M (menu) key to exit
 ---
 
 # Summary
