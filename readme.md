@@ -23,6 +23,7 @@ This tutorial explains how to set up a development environment on a Linux PC, wr
 8. [Playing a WAV File](08-lire-wav.md)
 9. [Playing an MP3 File](09-lire-mp3.md)
 10. [Playing a MOD File](10-lire-mod.md)
+10. [BlueTooth connexion](11-keyboardBT.md)
 ---
 
 # Hardware Specifications
