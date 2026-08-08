@@ -102,6 +102,11 @@ Application
 
 is available.
 
+
+![bluetooth1](images/oricEmu/bluetooth1.png)
+
+![bluetooth2](images/oricEmu/bluetooth2.png)
+
 ---
 
 # SSH connection

@@ -125,6 +125,11 @@ Analog sensitivity is configurable using a detection threshold.
 
 ![mush](images/oricEmu/mush.png)
 
+![xenon](images/oricEmu/xenon.png)
+
+![obrick](images/oricEmu/obrick.png)
+
+
 ## Anbernic keyboard Support
 
 
