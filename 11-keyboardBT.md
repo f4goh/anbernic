@@ -103,9 +103,9 @@ Application
 is available.
 
 
-![bluetooth1](images/oricEmu/bluetooth1.png)
+![bluetooth1](images/bluetooth1.png)
 
-![bluetooth2](images/oricEmu/bluetooth2.png)
+![bluetooth2](images/bluetooth2.png)
 
 ---
 
