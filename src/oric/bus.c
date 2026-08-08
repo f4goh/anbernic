@@ -196,7 +196,7 @@ void busInit()
     config_load("oric.cfg");
 
     ula_init(&ula);
-    ula_reset(&ula);
+    ula_reset(&ula,0);
 
 
     if(!video_init(&ula))
@@ -801,7 +801,7 @@ void snapSave()
   uint8_t audios=audioSize();
 
 
-    uint8_t snapBuffer[cpus+vias+audios+12];
+    uint8_t snapBuffer[cpus+vias+audios+1+15];
 
     uint8_t* p = snapBuffer;
     memcpy(p,"CPU", 3);
@@ -816,8 +816,14 @@ void snapSave()
     p+=3;
     memcpy(p, audioSave(),  audios);
     p +=  audios;
+    memcpy(p,"ULA", 3);
+    p+=3;
+    *p=ula.pattr;
+    p++;
     memcpy(p,"RAM", 3);
     p+=3;
+
+
     
     char fullpath[32];
 
@@ -828,7 +834,7 @@ void snapSave()
     //snprintf(fullpath,sizeof (fullpath),"%s.sna",srcFilename);
 
 
-   sd_save_snap(srcFilename,snapBuffer,cpus+vias+audios+12,(uint8_t *)ram,ORIC_RAM_SIZE);
+   sd_save_snap(srcFilename,snapBuffer,cpus+vias+audios+16,(uint8_t *)ram,ORIC_RAM_SIZE);
     
     
 }
@@ -839,7 +845,7 @@ void snapLoad()
     uint8_t vias = viaSize();
     uint8_t audios = audioSize();
 
-    uint8_t snapBuffer[cpus + vias + audios + 12];
+    uint8_t snapBuffer[cpus + vias + audios + 1+15];
 
     char fullpath[32];
 
@@ -852,7 +858,7 @@ void snapLoad()
 
     sd_load_snap(srcFilename,
                  snapBuffer,
-                 cpus + vias + audios + 12,
+                 cpus + vias + audios + 1+15,
                  ram,
                  ORIC_RAM_SIZE);
 
@@ -872,5 +878,7 @@ void snapLoad()
     p += 3; // skip "PSG"
     memcpy(audioSave(), p, audios);
     p += audios;
+    p += 3; // skip "ULA"
+    ula_reset(&ula,*p);
 }
 

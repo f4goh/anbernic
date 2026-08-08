@@ -59,11 +59,11 @@ void ula_init(Ula* u) {
 }
 
 // -------------------------
-void ula_reset(Ula* u)
+void ula_reset(Ula* u,uint8_t md)
 {
    
-    u->pattr=0;  //LORES
-    u->pattrSave = 0;
+    u->pattr=md;  //LORES
+    u->pattrSave = md;
     u->blink_counter=0;
     u->enMonitor=0;
 

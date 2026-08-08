@@ -12,6 +12,8 @@ The objective was to recreate the original ORIC hardware environment and make it
 
 The emulator reproduces the main ORIC hardware components while providing modern input, audio and storage features.
 
+![start](images/oricEmu/start.png)
+
 ---
 
 # Implemented Features
@@ -56,6 +58,8 @@ Supported ORIC 8-color palette.
 
 The video output is converted to SDL frames for modern displays.
 
+![menu](images/oricEmu/menu.png)
+
 ---
 
 ## Keyboard Support
@@ -68,6 +72,10 @@ Features:
 - Scan code processing.
 - Keyboard buffering.
 - ORIC compatible key handling.
+- Bluetooth keyboard supported (QWERTY prefered)
+- USB type C keyboard supported (QWERTY prefered)
+
+![basic](images/oricEmu/basic.png)
 
 ---
 
@@ -78,16 +86,17 @@ A virtual NES controller interface has been implemented.
 Controller mapping:
 
 ```
-Bit     Function
+| Bit | Function | Mapping | Input          |
+| --- | -------- | ------- | -------------- |
+| D7  | A        | A       | `INPUT_A`      |
+| D6  | B        | B       | `INPUT_B`      |
+| D5  | SELECT   | SELECT  | `INPUT_X`      |
+| D4  | START    | START   | `INPUT_Y`      |
+| D3  | UP       | HAUT    | `D-Pad Haut`   |
+| D2  | DOWN     | BAS     | `D-Pad bas`    |
+| D1  | LEFT     | GAUCHE  | `D-Pad gauche` |
+| D0  | RIGHT    | DROITE  | `D-Pad droite` |
 
-D7      A
-D6      B
-D5      SELECT
-D4      START
-D3      UP
-D2      DOWN
-D1      LEFT
-D0      RIGHT
 ```
 
 The controller uses active-low logic like the original NES protocol.
@@ -100,16 +109,35 @@ Implemented support for Anbernic handheld controls.
 
 Supported inputs:
 
-- D-Pad
-- Left analog stick
-- A button
+- D-Pad : moves
+- Left analog stick : moves
+- A button exécute
 - B button
-- SELECT button
-- START button
+- SELECT button Reset Oric
+- START button print automatic CLOAD"
+- L1 save snapshot
+- R1 load snapshot
+- Menu exit Oric emulator
 
 The analog stick and D-Pad can both control ORIC directions.
 
 Analog sensitivity is configurable using a detection threshold.
+
+![mush](images/oricEmu/mush.png)
+
+## Anbernic keyboard Support
+
+
+Supported keys function:
+
+- Cursor : select file
+- SPACE : run oric game selected 
+- F1 NMI
+- F2 Reset Oric
+- F5 print automatic CLOAD"
+- F6 save snapshot
+- F7 load snapshot
+- F12 exit Oric emulator
 
 ---
 
@@ -136,8 +164,10 @@ Features:
 - TAP file browsing.
 - TAP header analysis.
 - Binary loading.
-- CLOAD support.
+- CLOAD CSAVE support.
 - Automatic tape loading.
+
+![files](images/oricEmu/files.png)
 
 ---
 
@@ -165,18 +195,6 @@ Supported operations:
 
 ---
 
-## Binary Block Save
-
-Implemented raw memory block saving.
-
-Features:
-
-- Save selected RAM regions.
-- Export binary files.
-- Compatible with ORIC software development workflows.
-
----
-
 ## Configuration System
 
 Implemented external configuration files.
@@ -187,7 +205,6 @@ Example:
 # ORIC Emulator configuration
 
 keyboard=/dev/input/event3
-audio_gain=2
 ```
 
 Advantages:
@@ -241,38 +258,30 @@ Using:
 
 Main hardware components:
 
-```
-                 ORIC Emulator
 
-                      CPU
-                       |
-          +------------+------------+
-          |                         |
-        VIA                        ULA
-          |                         |
-      Keyboard                  Video
-          
-          |
-        Input
-          |
-  +-------+--------+
-  |                |
-NES Controller   Anbernic Joystick
-
-
-          |
-        AY PSG
-          |
-       SDL Audio
-
-
-          |
-       Storage
-          |
- TAP / SNAP / Binary files
+```text
+                         ORIC Emulator
+                              |
+                    +---------+---------+
+                    |                   |
+                CPU 6502             VIA 6522
+                    |                   |
+                    |          +--------+-----------------+
+                    |          |        |                 |
+                    |        Input     Audio           Storage
+                    |          |        |                 |
+                    |     +----+----+  AY PSG   +------------------+
+                    |     |         |     |     |         |        |
+                    |  Keyboard  Anbernic |     TAP     SNAP    Binary
+                    |   Joystick          |     files   files    files
+                    |                     |
+                    |                 SDL Audio
+                    |
+                   ULA
+                    |
+               Video SDL2
 ```
 
-The emulator is designed using independent modules to simplify maintenance and future improvements.
 
 ---
 
@@ -297,6 +306,10 @@ Implemented:
 - PC and ARM64 portability
 
 ---
+
+# HDMI output
+
+![hdmi](images/oricEmu/hdmi.jpg)
 
 # Future Improvements
 

@@ -359,7 +359,42 @@ void oric_keyboard_nes(uint8_t nesSt)
             addKeyNes(colonnesKey[tableNes[n][1]], tableNes[n][2]);
         }
     }
+   
+   /* //le secret du tombeau
+    switch(nesSt){
+        case 0xef : addKeyNes(colonnesKey[0],4);  //start saut space 
+        break;
+        case 0x7e : addKeyNes(colonnesKey[7],1);
+        break;
+        case 0x7d : addKeyNes(colonnesKey[5],6);
+        break;
+        case 0x7b : addKeyNes(colonnesKey[6],0);
+        break;
+        case 0x77 : addKeyNes(colonnesKey[7],6);
+        break;
         
+        case 0x7f : addKeyNes(colonnesKey[6],6); // A stop
+        break;
+
+        case 0xfe : addKeyNes(colonnesKey[1],7); //droite
+                  break;
+        case 0xfd : addKeyNes(colonnesKey[0],1); //gauche
+                  break;
+        case 0xfb : addKeyNes(colonnesKey[0],2); //bas
+                  break;
+        case 0xf7 : addKeyNes(colonnesKey[1],5); //haut
+                break;
+
+        case 0xbf :
+                  addKeyNes(colonnesKey[0],3); //
+                  break;
+   
+    }   
+*/
+
+
+
+     
     /*
     // -----------------------------------------------------
     // UP

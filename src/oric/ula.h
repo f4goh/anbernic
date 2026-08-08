@@ -44,7 +44,7 @@ extern volatile uint8_t ula_nesSt;
 
 
 void ula_init(Ula* u);
-void ula_reset(Ula* u);
+void ula_reset(Ula* u,uint8_t md);
 void ula_monitor(Ula* u,bool _enMonitor);
 
 
