@@ -43,7 +43,7 @@ def csv_to_c(csv_file, output_file, array_name="LEVEL_01"):
 
     # Génération du fichier C
     with open(output_file, "w", encoding="utf-8") as f:
-        f.write("#include <stdint.h>\n\n")
+        #f.write("#include <stdint.h>\n\n")
 
         f.write(f"const uint8_t {array_name}[{height}][{width}] =\n")
         f.write("{\n")
@@ -78,7 +78,7 @@ if __name__ == "__main__":
     output_file = sys.argv[2]
 
     # Nom du tableau optionnel
-    array_name = sys.argv[3] if len(sys.argv) >= 4 else "LEVEL_01"
+    array_name = sys.argv[3] if len(sys.argv) >= 4 else "LEVEL_"
 
     csv_to_c(csv_file, output_file, array_name)
 

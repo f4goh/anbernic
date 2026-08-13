@@ -31,6 +31,33 @@ extern const uint8_t LEVEL_22[16][20];
 extern const uint8_t LEVEL_23[14][20];
 extern const uint8_t LEVEL_24[16][20];
 extern const uint8_t LEVEL_25[16][20];
+extern const uint8_t LEVEL_25[16][20];
+extern const uint8_t LEVEL_26[12][20];
+extern const uint8_t LEVEL_27[13][20];
+extern const uint8_t LEVEL_28[15][20];
+extern const uint8_t LEVEL_29[13][20];
+extern const uint8_t LEVEL_30[14][20];
+extern const uint8_t LEVEL_31[16][20];
+extern const uint8_t LEVEL_32[15][20];
+extern const uint8_t LEVEL_33[15][20];
+extern const uint8_t LEVEL_34[15][20];
+extern const uint8_t LEVEL_35[16][20];
+extern const uint8_t LEVEL_36[16][20];
+extern const uint8_t LEVEL_37[15][20];
+extern const uint8_t LEVEL_38[11][20];
+extern const uint8_t LEVEL_39[16][20];
+extern const uint8_t LEVEL_40[16][20];
+extern const uint8_t LEVEL_41[15][20];
+extern const uint8_t LEVEL_42[13][20];
+extern const uint8_t LEVEL_43[11][20];
+extern const uint8_t LEVEL_44[15][20];
+extern const uint8_t LEVEL_45[14][20];
+extern const uint8_t LEVEL_46[16][20];
+extern const uint8_t LEVEL_47[11][20];
+extern const uint8_t LEVEL_48[16][20];
+extern const uint8_t LEVEL_49[15][20];
+extern const uint8_t LEVEL_50[16][20];
+
 
 extern const LevelDefinition LEVEL_DEFINITIONS[];
 
