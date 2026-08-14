@@ -25,6 +25,8 @@ This tutorial explains how to set up a development environment on a Linux PC, wr
 10. [Playing a MOD File](10-lire-mod.md)
 11. [BlueTooth connexion](11-keyboardBT.md)
 12. [Oric Atmos Emulation](12-oric-emu.md)
+13. [RGB led command](13-led-rgb.md)
+
 
 ---
 
